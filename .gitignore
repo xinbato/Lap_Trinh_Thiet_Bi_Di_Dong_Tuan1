@@ -1,0 +1,10 @@
+.DS_Store
+Thumbs.db
+
+# Android build & IDE files
+SourceCode/.gradle/
+SourceCode/build/
+SourceCode/app/build/
+SourceCode/.idea/
+SourceCode/local.properties
+SourceCode/*.iml
