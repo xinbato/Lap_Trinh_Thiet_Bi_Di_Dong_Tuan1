@@ -13,6 +13,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.EditNote
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
@@ -41,6 +48,10 @@ class MainActivity : ComponentActivity() {
                     AddUI(
                         name = "Duong Thanh Dat",
                         maso = "080206009048"
+                    )
+                    topBar(
+                        onBackClick = {},
+                        onNoteClick = {}
                     )
                 }
 
@@ -75,5 +86,30 @@ fun AddUI(name: String, maso: String, modifier: Modifier = Modifier ){
             fontSize = 16.sp
         )
     }
+}
+@OptIn(ExperimentalMaterial3Api::class)@Composable
+fun topBar(
+    onBackClick: () -> Unit,
+    onNoteClick: () -> Unit
+) {
+    TopAppBar(
+        title = {},
+        navigationIcon = {
+            IconButton(onClick = onBackClick) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                    contentDescription = "Quay lại"
+                )
+            }
+        },
+        actions = {
+            IconButton(onClick = onNoteClick) {
+                Icon(
+                    imageVector = Icons.Default.EditNote,
+                    contentDescription = "Ghi chú"
+                )
+            }
+        }
+    )
 }
 
